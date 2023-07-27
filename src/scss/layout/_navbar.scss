@@ -1,0 +1,43 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.Header {
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 1rem;
+  &-global {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+  }
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    box-shadow: 0px 0px 5px 0.1px rgba(255, 255, 255, 1);
+  }
+  &-logo {
+    width: 4rem;
+    @include m.tabletL {
+      width: 6rem;
+    }
+  }
+  &-icon {
+    width: 1.2rem;
+    fill: rgb(196, 196, 196);
+    @include m.tabletL {
+      width: 2rem;
+    }
+  }
+  &-form {
+  }
+  &-input {
+    background-color: white;
+    border-style: none;
+    padding: 0.5rem;
+  }
+}
