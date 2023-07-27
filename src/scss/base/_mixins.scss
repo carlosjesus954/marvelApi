@@ -1,0 +1,60 @@
+@mixin flex($flow, $content, $items, $gap) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $content;
+  align-items: $items;
+  gap: $gap;
+}
+
+@mixin neo($radius, $eje) {
+  border-radius: $radius;
+  background: #4cb8b3;
+  box-shadow: $eje $eje ($eje * 2) #347d7a, (-$eje) (-$eje) ($eje * 2) #64f3ec;
+}
+
+@mixin telefonoM {
+  @media screen and (min-width: 452px) {
+    @content;
+  }
+}
+@mixin telefonoL {
+  @media screen and (min-width: 500px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: 742px) {
+    @content;
+  }
+}
+@mixin tabletL {
+  @media screen and (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1250px) {
+    @content;
+  }
+}
+@mixin desktopL {
+  @media screen and (min-width: 1400px) {
+    @content;
+  }
+}
+@mixin desktop-L {
+  @media screen and (min-width: 1550px) {
+    @content;
+  }
+}
+@mixin desktop-catalogo {
+  @media screen and (min-width: 1665px) {
+    @content;
+  }
+}
+@mixin desktopXL {
+  @media screen and (min-width: 1750px) {
+    @content;
+  }
+}

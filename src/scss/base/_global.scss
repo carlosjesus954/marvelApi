@@ -1,0 +1,50 @@
+@use "variables" as v;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+.Wrapper {
+  max-width: 110rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Btn-reutilizable {
+  background-color: v.$colorPrincipal;
+  border-style: none;
+  padding: 1rem;
+  width: 100%;
+  max-width: 23.3rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.2s;
+  font-weight: bolder;
+}
+.Btn-reutilizable:hover {
+  background-color: black;
+  color: white;
+}
+.Btn-reutilizable--white {
+  background-color: transparent;
+  color: v.$colorPrincipal;
+  border: 2px solid v.$colorPrincipal;
+}
+.Btn-reutilizable--white:hover {
+  background-color: transparent;
+  color: black;
+}
