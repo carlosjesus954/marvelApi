@@ -34,10 +34,22 @@
     }
   }
   &-form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    @include m.tablet {
+      flex-flow: row nowrap;
+    }
   }
   &-input {
     background-color: white;
     border-style: none;
     padding: 0.5rem;
+  }
+  &-errors {
+    color: red;
   }
 }

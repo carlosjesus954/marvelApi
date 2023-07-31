@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "../hooks/useForm";
+import { useFetch } from "../hooks/useFetch";
 
 export const NavBar = () => {
+  const [character, setCharacter] = useState("");
+  const initialValue = {
+    search: "",
+  };
+  const formValidations = (form) => {
+    let errors = {};
+    if (!form.search.trim()) {
+      errors.search = "El campo se encuentra vacío";
+    }
+    return errors;
+  };
+  const handleSearchSubmit = (searchQuery) => {
+    console.log("enviando consulta de busqueda", searchQuery);
+    setCharacter(searchQuery);
+  };
+  const { form, handleChange, errors, handleBlur, handleSubmit } = useForm(
+    initialValue,
+    formValidations,
+    handleSearchSubmit
+  );
+  useFetch(character);
   return (
     <header className="Header ">
       <div className="Header-global Wrapper">
@@ -19,13 +42,23 @@ export const NavBar = () => {
           >
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
           </svg>
-          <form action="#" method="get" className="Header-form">
+          <form
+            action="#"
+            method="get"
+            className="Header-form"
+            onSubmit={handleSubmit}
+          >
             <input
               type="text"
-              name=""
+              onChange={handleChange}
+              onBlur={handleBlur}
+              name="search"
+              value={form.search}
               className="Header-input"
               placeholder="Buscar"
+              required
             />
+            {errors.search && <p className="Header-errors">{errors.search}</p>}
           </form>
         </div>
         <svg

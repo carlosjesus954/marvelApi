@@ -69,10 +69,26 @@
     width: 2rem;
   }
 }
+.Header-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+@media screen and (min-width: 742px) {
+  .Header-form {
+    flex-flow: row nowrap;
+  }
+}
 .Header-input {
   background-color: white;
   border-style: none;
   padding: 0.5rem;
+}
+.Header-errors {
+  color: red;
 }
 
 /*# sourceMappingURL=index.css.map */
