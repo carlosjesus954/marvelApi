@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
-export const useForm = (initialValue, formValidations, handleSearchSubmit) => {
+export const useForm = (initialValue, formValidations) => {
   const [form, setForm] = useState(initialValue);
   const [errors, setErrors] = useState({});
-
+  const { handleSearchSubmit } = useContext(AuthContext);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({

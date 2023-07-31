@@ -3,7 +3,6 @@ import { useForm } from "../hooks/useForm";
 import { useFetch } from "../hooks/useFetch";
 
 export const NavBar = () => {
-  const [character, setCharacter] = useState("");
   const initialValue = {
     search: "",
   };
@@ -14,16 +13,11 @@ export const NavBar = () => {
     }
     return errors;
   };
-  const handleSearchSubmit = (searchQuery) => {
-    console.log("enviando consulta de busqueda", searchQuery);
-    setCharacter(searchQuery);
-  };
   const { form, handleChange, errors, handleBlur, handleSubmit } = useForm(
     initialValue,
-    formValidations,
-    handleSearchSubmit
+    formValidations
   );
-  useFetch(character);
+
   return (
     <header className="Header ">
       <div className="Header-global Wrapper">
