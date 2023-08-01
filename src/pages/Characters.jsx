@@ -1,22 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export const Characters = () => {
-  const { personajes, setPersonajes } = useContext(AuthContext);
-  const [loading, setLoading] = useState(true);
-
-  const dataResults = useFetch();
-
-  useEffect(() => {
-    setPersonajes(dataResults);
-    setLoading(false);
-  }, [dataResults, setPersonajes]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
+  const { personajes } = useContext(AuthContext);
   return (
     <section className="Characters Wrapper">
       <div className="Characters-global">

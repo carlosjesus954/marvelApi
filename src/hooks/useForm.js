@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 export const useForm = (initialValue, formValidations) => {
   const [form, setForm] = useState(initialValue);
   const [errors, setErrors] = useState({});
-  const { handleSearchSubmit } = useContext(AuthContext);
+  const { busquedaPersonajes } = useContext(AuthContext);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({
@@ -23,7 +23,7 @@ export const useForm = (initialValue, formValidations) => {
 
     if (Object.keys(errors).length === 0) {
       const { search } = form;
-      handleSearchSubmit(search);
+      busquedaPersonajes(search);
     } else {
       return;
     }
