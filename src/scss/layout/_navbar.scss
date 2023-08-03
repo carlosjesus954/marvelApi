@@ -14,9 +14,10 @@
   }
   &-container {
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    gap: 0.2rem;
+    gap: 0.5rem;
     padding: 0.3rem;
   }
   &-logo {
@@ -37,7 +38,6 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
     gap: 1rem;
     @include m.tablet {
       flex-flow: row nowrap;
