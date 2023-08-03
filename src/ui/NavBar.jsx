@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { useForm } from "../hooks/useForm";
+import { AuthContext } from "../context/AuthContext";
+import { useEffect } from "react";
+import { useFetch } from "../hooks/useFetch";
 
 export const NavBar = () => {
+  const { comicActivate, changeComicActivate } = useContext(AuthContext);
   const initialValue = {
     search: "",
   };
@@ -15,6 +20,10 @@ export const NavBar = () => {
     initialValue,
     formValidations
   );
+  useEffect(() => {
+    useFetch(comicActivate);
+    console.log(comicActivate);
+  }, [comicActivate]);
 
   return (
     <header className="Header ">
@@ -50,7 +59,18 @@ export const NavBar = () => {
               placeholder="Buscar"
               required
             />
+
             {errors.search && <p className="Header-errors">{errors.search}</p>}
+
+            <div className="Header-subcontainer" onClick={changeComicActivate}>
+              <span
+                className={`Header-span ${
+                  comicActivate ? "Header-span--activate" : ""
+                }`}
+              >
+                Buscar comics
+              </span>
+            </div>
           </form>
         </div>
         <svg
