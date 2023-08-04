@@ -22,6 +22,7 @@ export const Provider = ({ children }) => {
     const { results } = datos.data;
     setPersonajes(results);
     // console.log(results);
+    console.log("personajes", results);
   };
 
   const getComics = async () => {
@@ -29,16 +30,15 @@ export const Provider = ({ children }) => {
     const { results } = datos.data;
     setComics(results);
     // console.log(comics);
+    console.log("comics", results);
   };
 
   useEffect(() => {
     getPersonajes();
     busquedaPersonajes();
-    // console.log(personajes);
   }, []);
   useEffect(() => {
     getComics();
-    console.log(comics);
   }, []);
 
   return (
