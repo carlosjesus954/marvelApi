@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { useFetch } from "../hooks/useFetch";
+// import { useComics } from "../hooks/useComics";
 
 export const Provider = ({ children }) => {
   const [personajes, setPersonajes] = useState([]);
@@ -15,22 +16,27 @@ export const Provider = ({ children }) => {
     const datos = await useFetch();
     const { results } = datos.data;
     setPersonajes(results);
-    // console.log(results);
+    // console.log("personajes aleatorios", results);
   };
   const busquedaPersonajes = async (search) => {
     const datos = await useFetch(search);
     const { results } = datos.data;
     setPersonajes(results);
-    // console.log(results);
-    console.log("personajes", results);
+    // console.log("personaje buscado:", results);
   };
 
   const getComics = async () => {
     const datos = await useFetch();
     const { results } = datos.data;
     setComics(results);
-    // console.log(comics);
-    console.log("comics", results);
+    // console.log("comics", results);
+  };
+
+  const busquedaComics = async (comicSearch) => {
+    const datos = await useFetch(comicSearch);
+    const { results } = datos.data;
+    setComics(results);
+    // console.log("comic buscado:", results);
   };
 
   useEffect(() => {
@@ -49,6 +55,7 @@ export const Provider = ({ children }) => {
         comics,
         comicActivate,
         changeComicActivate,
+        busquedaComics,
       }}
     >
       {children}

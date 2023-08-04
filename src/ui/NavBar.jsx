@@ -5,7 +5,12 @@ import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 export const NavBar = () => {
-  const { comicActivate, changeComicActivate } = useContext(AuthContext);
+  const {
+    comicActivate,
+    changeComicActivate,
+    busquedaPersonajes,
+    busquedaComics,
+  } = useContext(AuthContext);
   const initialValue = {
     search: "",
   };
@@ -16,14 +21,19 @@ export const NavBar = () => {
     }
     return errors;
   };
+  const mandarSearch = (search) => {
+    busquedaPersonajes(search);
+    busquedaComics(search);
+  };
   const { form, handleChange, errors, handleBlur, handleSubmit } = useForm(
     initialValue,
-    formValidations
+    formValidations,
+    mandarSearch
   );
   useEffect(() => {
     useFetch(comicActivate);
     console.log(comicActivate);
-  }, [comicActivate]);
+  }, []);
 
   return (
     <header className="Header ">

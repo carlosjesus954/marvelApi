@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { NavBar } from "../ui/NavBar";
 
-export const useForm = (initialValue, formValidations) => {
+export const useForm = (initialValue, formValidations, mandarSearch) => {
   const [form, setForm] = useState(initialValue);
   const [errors, setErrors] = useState({});
-  const { busquedaPersonajes } = useContext(AuthContext);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({
@@ -23,7 +23,7 @@ export const useForm = (initialValue, formValidations) => {
 
     if (Object.keys(errors).length === 0) {
       const { search } = form;
-      busquedaPersonajes(search);
+      mandarSearch(search);
     } else {
       return;
     }
