@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export const Description = () => {
-  return <section className="Description">Description</section>;
+  const { descriptionPersonaje } = useContext(AuthContext);
+  // console.log(descriptionPersonaje);
+  return (
+    <section className="Description">
+      <article className="Description-article">
+        <img src={descriptionPersonaje.img} alt={descriptionPersonaje.name} />
+      </article>
+    </section>
+  );
 };

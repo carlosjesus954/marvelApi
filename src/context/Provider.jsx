@@ -9,6 +9,22 @@ export const Provider = ({ children }) => {
   const [comics, setComics] = useState([]);
   const [comicActivate, setComicActivate] = useState(false);
 
+  const [descriptionPersonaje, setDescriptionPersonaje] = useState({
+    name: "",
+    img: "",
+    id: "",
+  });
+
+  const pushPersonajeDescription = ({ name, img, id }) => {
+    console.log("Y aqui en el provider", name, img, id);
+    setDescriptionPersonaje((prevState) => ({
+      ...prevState,
+      name: name,
+      img: img,
+      id: id,
+    }));
+  };
+
   const changeComicActivate = () => {
     setComicActivate(!comicActivate);
   };
@@ -30,14 +46,14 @@ export const Provider = ({ children }) => {
     const datos = await useComics();
     const { results } = datos.data;
     setComics(results);
-    console.log("comics", results);
+    // console.log("comics", results);
   };
 
   const busquedaComics = async (search) => {
     const datos = await useComics(search);
     const { results } = datos.data;
     setComics(results);
-    console.log("comic buscado:", results);
+    // console.log("comic buscado:", results);
   };
 
   useEffect(() => {
@@ -58,6 +74,8 @@ export const Provider = ({ children }) => {
         comicActivate,
         changeComicActivate,
         busquedaComics,
+        descriptionPersonaje,
+        pushPersonajeDescription,
       }}
     >
       {children}
