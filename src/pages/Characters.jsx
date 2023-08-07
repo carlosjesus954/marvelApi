@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Description } from "./Description";
 
 export const Characters = () => {
   const { personajes, comics, comicActivate } = useContext(AuthContext);
@@ -14,10 +15,10 @@ export const Characters = () => {
                 <div className="Characters-cards" key={ele.id}>
                   <img
                     src={`${path}.${extension}`}
-                    alt={ele.name}
+                    alt={ele.title}
                     className="Characters-img"
                   />
-                  <h2 className="Characters-h2">{ele.name}</h2>
+                  <h2 className="Characters-h2">{ele.title}</h2>
                 </div>
               );
             })

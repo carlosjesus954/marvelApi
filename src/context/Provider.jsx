@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { useFetch } from "../hooks/useFetch";
+import { useComics } from "../hooks/useComics";
 // import { useComics } from "../hooks/useComics";
 
 export const Provider = ({ children }) => {
@@ -26,17 +27,17 @@ export const Provider = ({ children }) => {
   };
 
   const getComics = async () => {
-    const datos = await useFetch();
+    const datos = await useComics();
     const { results } = datos.data;
     setComics(results);
-    // console.log("comics", results);
+    console.log("comics", results);
   };
 
-  const busquedaComics = async (comicSearch) => {
-    const datos = await useFetch(comicSearch);
+  const busquedaComics = async (search) => {
+    const datos = await useComics(search);
     const { results } = datos.data;
     setComics(results);
-    // console.log("comic buscado:", results);
+    console.log("comic buscado:", results);
   };
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export const Provider = ({ children }) => {
   }, []);
   useEffect(() => {
     getComics();
+    busquedaComics();
   }, []);
 
   return (

@@ -16,11 +16,7 @@
   }
 }
 .Characters-h2 {
-  position: absolute;
-  z-index: 1;
-  top: 16rem;
-  left: 1rem;
-  color: rgb(255, 6, 6);
+  color: rgb(0, 0, 0);
 }
 .Characters-img {
   object-fit: cover;
@@ -32,6 +28,7 @@
   width: 100%;
   max-width: 30rem;
   position: relative;
+  text-align: center;
 }
 
 .Header {

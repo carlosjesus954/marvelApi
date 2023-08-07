@@ -1,6 +1,4 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { NavBar } from "../ui/NavBar";
+import { useState } from "react";
 
 export const useForm = (initialValue, formValidations, mandarSearch) => {
   const [form, setForm] = useState(initialValue);

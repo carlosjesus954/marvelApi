@@ -1,12 +1,10 @@
 import React from "react";
-import { NavBar } from "./ui/NavBar";
-import { Characters } from "./pages/Characters";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Characters />
+      <AppRouter />
     </>
   );
 }
