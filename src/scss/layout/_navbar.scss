@@ -33,15 +33,15 @@
       width: 2rem;
     }
   }
+  &-icon:hover {
+    // fill: ;
+  }
   &-form {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    @include m.tablet {
-      flex-flow: row nowrap;
-    }
   }
   &-input {
     background-color: white;

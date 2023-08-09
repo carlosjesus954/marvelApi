@@ -9,6 +9,9 @@ export const Provider = ({ children }) => {
   const [comics, setComics] = useState([]);
   const [comicActivate, setComicActivate] = useState(false);
 
+  const [favoritosActivo, setFavoritosActivo] = useState(false);
+  const [personajesFavoritos, setPersonajesFavoritos] = useState([]);
+
   const [descriptionPersonaje, setDescriptionPersonaje] = useState({
     name: "",
     img: "",
@@ -25,6 +28,9 @@ export const Provider = ({ children }) => {
     }));
   };
 
+  const onChangeFavoritos = () => {
+    setFavoritosActivo(!favoritosActivo);
+  };
   const changeComicActivate = () => {
     setComicActivate(!comicActivate);
   };
@@ -76,6 +82,9 @@ export const Provider = ({ children }) => {
         busquedaComics,
         descriptionPersonaje,
         pushPersonajeDescription,
+        favoritosActivo,
+        personajesFavoritos,
+        onChangeFavoritos,
       }}
     >
       {children}
