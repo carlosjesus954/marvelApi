@@ -11,6 +11,7 @@ export const Provider = ({ children }) => {
 
   const [favoritosActivo, setFavoritosActivo] = useState(false);
   const [personajesFavoritos, setPersonajesFavoritos] = useState([]);
+  const [favoritoActivoCard, setFavoritoActivoCard] = useState(false);
 
   const [descriptionPersonaje, setDescriptionPersonaje] = useState({
     name: "",
@@ -31,6 +32,10 @@ export const Provider = ({ children }) => {
   const onChangeFavoritos = () => {
     setFavoritosActivo(!favoritosActivo);
   };
+  const onChangeFavoritosCards = () => {
+    setFavoritoActivoCard(!favoritoActivoCard);
+  };
+
   const changeComicActivate = () => {
     setComicActivate(!comicActivate);
   };
@@ -85,6 +90,8 @@ export const Provider = ({ children }) => {
         favoritosActivo,
         personajesFavoritos,
         onChangeFavoritos,
+        favoritoActivoCard,
+        onChangeFavoritosCards,
       }}
     >
       {children}

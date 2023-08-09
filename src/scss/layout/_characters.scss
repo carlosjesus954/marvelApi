@@ -10,6 +10,7 @@
     justify-content: center;
     @include m.telefonoL {
       flex-flow: row wrap;
+      gap: 3rem;
     }
     @include m.tabletL {
       justify-content: space-between;
@@ -22,12 +23,50 @@
     object-fit: cover;
     object-position: center;
     width: 100%;
-    height: 20rem;
+    height: 100%;
+    min-height: 20rem;
+    max-height: 40rem;
   }
   &-cards {
     width: 100%;
     max-width: 30rem;
     position: relative;
     text-align: center;
+  }
+  &-icon {
+    width: 2rem;
+    fill: rgb(209, 209, 209);
+  }
+
+  &-info {
+    position: absolute;
+    width: 6rem;
+    bottom: 4rem;
+    left: 40%;
+    background-color: #ee171e88;
+    padding: 1rem;
+    color: white;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: #000000;
+      color: #ee171e;
+      left: 38%;
+      width: 8rem;
+    }
+    &:active {
+      background-color: #000000;
+      color: #ee171e;
+      left: 38%;
+      width: 8rem;
+    }
+  }
+
+  &-star {
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    position: absolute;
+    z-index: 2;
+    background-color: red;
   }
 }
