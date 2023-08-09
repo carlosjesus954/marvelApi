@@ -90,7 +90,7 @@ export const NavBar = () => {
           <NavLink to={"/"}>
             <svg
               fillRule="currentColor"
-              class="Header-icon"
+              className="Header-icon"
               viewBox="0 0 16 16"
               onClick={() => onChangeFavoritos()}
             >

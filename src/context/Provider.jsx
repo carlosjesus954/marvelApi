@@ -11,7 +11,7 @@ export const Provider = ({ children }) => {
 
   const [favoritosActivo, setFavoritosActivo] = useState(false);
   const [personajesFavoritos, setPersonajesFavoritos] = useState([]);
-  const [favoritoActivoCard, setFavoritoActivoCard] = useState(false);
+  const [favoritoActivoCard, setFavoritoActivoCard] = useState([]);
 
   const [descriptionPersonaje, setDescriptionPersonaje] = useState({
     name: "",
@@ -32,8 +32,19 @@ export const Provider = ({ children }) => {
   const onChangeFavoritos = () => {
     setFavoritosActivo(!favoritosActivo);
   };
-  const onChangeFavoritosCards = () => {
-    setFavoritoActivoCard(!favoritoActivoCard);
+
+  const onAddFavoritosCards = (id) => {
+    setFavoritoActivoCard((prevState) => ({
+      ...prevState,
+      [id]: true,
+    }));
+  };
+  const onDeleteFavoritosCards = (id) => {
+    setFavoritoActivoCard((prevState) => {
+      const newState = { ...prevState };
+      delete newState[id]; // Elimina la propiedad con la ID como clave
+      return newState;
+    });
   };
 
   const changeComicActivate = () => {
@@ -91,7 +102,8 @@ export const Provider = ({ children }) => {
         personajesFavoritos,
         onChangeFavoritos,
         favoritoActivoCard,
-        onChangeFavoritosCards,
+        onAddFavoritosCards,
+        onDeleteFavoritosCards,
       }}
     >
       {children}
