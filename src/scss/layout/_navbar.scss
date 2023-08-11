@@ -29,12 +29,9 @@
   &-icon {
     width: 1.2rem;
     fill: rgb(196, 196, 196);
-    @include m.tabletL {
+    @include m.telefonoM {
       width: 2rem;
     }
-  }
-  &-icon:hover {
-    // fill: ;
   }
   &-form {
     display: flex;
