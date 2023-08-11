@@ -10,7 +10,7 @@
     justify-content: center;
     @include m.telefonoL {
       flex-flow: row wrap;
-      gap: 3rem;
+      gap: 4rem;
     }
     @include m.tabletL {
       justify-content: space-between;
@@ -41,7 +41,7 @@
   &-info {
     position: absolute;
     width: 6rem;
-    bottom: 4rem;
+    bottom: 7rem;
     left: 40%;
     background-color: #ee171e88;
     padding: 1rem;
@@ -67,6 +67,6 @@
     right: 1rem;
     position: absolute;
     z-index: 2;
-    background-color: red;
+    // background-color: red;
   }
 }

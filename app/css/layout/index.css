@@ -8,7 +8,7 @@
 @media screen and (min-width: 500px) {
   .Characters-global {
     flex-flow: row wrap;
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 @media screen and (min-width: 1010px) {
@@ -40,7 +40,7 @@
 .Characters-info {
   position: absolute;
   width: 6rem;
-  bottom: 4rem;
+  bottom: 7rem;
   left: 40%;
   background-color: rgba(238, 23, 30, 0.5333333333);
   padding: 1rem;
@@ -65,7 +65,6 @@
   right: 1rem;
   position: absolute;
   z-index: 2;
-  background-color: red;
 }
 
 .Header {
@@ -135,6 +134,51 @@
 .Header-span--activate {
   color: rgb(129, 199, 25);
   font-weight: bold;
+}
+
+.Favoritos {
+  padding: 1rem;
+}
+.Favoritos-global {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 6rem;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1250px) {
+  .Favoritos-global {
+    flex-flow: row wrap;
+  }
+}
+.Favoritos-card {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  height: 30rem;
+}
+.Favoritos-img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  display: block;
+}
+.Favoritos-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+}
+.Favoritos-name {
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  background-color: red;
+}
+.Favoritos-span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */
