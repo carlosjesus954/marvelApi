@@ -1,2 +1,33 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
+
+.Description {
+  padding: 1rem;
+  &-global {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+  }
+  &-h2 {
+    width: 100%;
+    background-image: url(../../../public/assets/marvelFondo2.jpg);
+    padding: 1rem;
+    color: white;
+    border-radius: 5px;
+  }
+  &-cards {
+    padding: 1rem;
+    background-image: url(../../../public/assets/cardsmarvel.jpg);
+  }
+  &-img {
+  }
+  &-title {
+    color: white;
+  }
+  &-comics {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+  }
+}

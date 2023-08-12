@@ -13,8 +13,8 @@ export const Characters = () => {
     favoritoActivoCard,
   } = useContext(AuthContext);
 
-  const descriptionValuePersonajes = (name, img, id) => {
-    console.log("Aqui esta en la funcion, ", name, img, id);
+  const descriptionValuePersonajes = ({ name, img, id }) => {
+    // console.log("Aqui esta en la funcion, ", name, img, id);
     pushPersonajeDescription({ name, img, id });
   };
   return (

@@ -136,6 +136,35 @@
   font-weight: bold;
 }
 
+.Description {
+  padding: 1rem;
+}
+.Description-global {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+.Description-h2 {
+  width: 100%;
+  background-image: url(../../../public/assets/marvelFondo2.jpg);
+  padding: 1rem;
+  color: white;
+  border-radius: 5px;
+}
+.Description-cards {
+  padding: 1rem;
+  background-image: url(../../../public/assets/cardsmarvel.jpg);
+}
+.Description-title {
+  color: white;
+}
+.Description-comics {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+
 .Favoritos {
   padding: 1rem;
 }

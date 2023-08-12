@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { useFetch } from "../hooks/useFetch";
 import { useComics } from "../hooks/useComics";
-// import { useComics } from "../hooks/useComics";
+import { useComicsById } from "../hooks/useComicsById";
 
 export const Provider = ({ children }) => {
   const [personajes, setPersonajes] = useState([]);
@@ -12,6 +12,8 @@ export const Provider = ({ children }) => {
   const [favoritosActivo, setFavoritosActivo] = useState(false);
   const [favoritoActivoCard, setFavoritoActivoCard] = useState([]);
 
+  const [useComicsId, setUseComicsId] = useState([]);
+
   const [descriptionPersonaje, setDescriptionPersonaje] = useState({
     name: "",
     img: "",
@@ -19,7 +21,7 @@ export const Provider = ({ children }) => {
   });
 
   const pushPersonajeDescription = ({ name, img, id }) => {
-    console.log("Y aqui en el provider", name, img, id);
+    // console.log("Y aqui en el provider", name, img, id);
     setDescriptionPersonaje((prevState) => ({
       ...prevState,
       name: name,
@@ -33,7 +35,7 @@ export const Provider = ({ children }) => {
   };
 
   const onAddFavoritosCards = ({ id, title, name, img }) => {
-    console.log(id, title, name, img);
+    // console.log(id, title, name, img);
     setFavoritoActivoCard((prevState) => ({
       ...prevState,
       [id]: {
@@ -52,6 +54,13 @@ export const Provider = ({ children }) => {
 
   const changeComicActivate = () => {
     setComicActivate(!comicActivate);
+  };
+
+  const getComicsById = async (id) => {
+    const datos = await useComicsById(id);
+    const { results } = datos.data;
+    setUseComicsId(results);
+    // console.log(useComicsId);
   };
 
   const getPersonajes = async () => {
@@ -89,6 +98,9 @@ export const Provider = ({ children }) => {
     getComics();
     busquedaComics();
   }, []);
+  useEffect(() => {
+    getComicsById();
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -106,6 +118,8 @@ export const Provider = ({ children }) => {
         favoritoActivoCard,
         onAddFavoritosCards,
         onDeleteFavoritosCards,
+        useComicsId,
+        getComicsById,
       }}
     >
       {children}
